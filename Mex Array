@@ -1,0 +1,46 @@
+#include <iostream>
+#include <unordered_map>
+#include <set>
+#include <vector>
+using namespace std;
+
+int main() {
+int t;
+cin >> t;
+while (t--){
+    int n;
+    cin >> n;
+    unordered_map<int, int> mp;
+    multiset<int> s;
+    for (int i = 0; i < n; i++) {
+        int curr;
+        cin >> curr;
+        mp[curr]++;
+        s.insert(curr);
+    }
+    int cnt = n;
+    vector<int> b;
+    while (cnt > 0) {
+        for (int i = 0; i < n + 5; i++) {
+            if (mp[i] > 0) {
+             mp[i]--;
+             cnt--;
+             } else {
+                if (i == 0) {
+                 while (cnt--) {
+                 b.push_back(0);
+                 }
+                 break;
+            }
+                b.push_back(i);
+                break;
+            }
+        }
+    }
+    cout << b.size() << "\n";
+    for (auto it : b) {
+        cout << it << " ";
+    }
+}
+     return 0;
+}
