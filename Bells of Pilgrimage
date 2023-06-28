@@ -1,0 +1,13 @@
+# cook your dish here
+t=int(input())
+while t>0:
+    t-=1
+    n,x,k,p=map(int,input().split())
+    if(x>=k):
+        p+=k*10
+    else:
+        p+=x*10
+        p+=(min(n,k)-x)*5
+    if(k==n):
+        p+=20
+    print(p)
